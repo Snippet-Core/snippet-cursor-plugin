@@ -1,0 +1,24 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "snippet",
+  "version": "1.0.0",
+  "description": "Brand deals and sponsorships for creators: see what needs you, price offers, answer brand emails and approve your manager's moves.",
+  "author": {
+    "name": "Snippet",
+    "url": "https://usesnippet.app"
+  },
+  "homepage": "https://usesnippet.app/agents",
+  "keywords": [
+    "brand deals",
+    "sponsorships",
+    "influencer",
+    "creator",
+    "UGC",
+    "rate card",
+    "brand partnerships",
+    "talent manager",
+    "YouTube",
+    "TikTok",
+    "Instagram"
+  ]
+}
