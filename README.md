@@ -35,6 +35,11 @@ See [llms-install.md](llms-install.md) for Cline configuration and safe verifica
 A Snippet account with access is required. Stop if OAuth fails; do not invent a
 client ID, paste tokens into configuration, or bypass client consent.
 
+
+## Hermes Agent
+
+A Portable Agent Plugin for [Hermes Agent](https://hermes-agent.nousresearch.com) is in [`hermes/`](hermes/) (`plugin.json`, `mcp.json`, and a Hermes-specific guide). It uses the same remote MCP endpoint, `https://usesnippet.app/api/mcp`. The public plugin-only package, including that directory, is MIT licensed.
+
 ## Directory artwork
 
 - [400 × 400 PNG icon](assets/icon-400.png)
