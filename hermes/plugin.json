@@ -1,0 +1,25 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "snippet",
+  "version": "1.0.0",
+  "description": "Connect Snippet to manage creator brand deals, offers and brand replies.",
+  "author": {
+    "name": "Snippet",
+    "url": "https://usesnippet.app"
+  },
+  "homepage": "https://usesnippet.app/agents",
+  "keywords": [
+    "creators",
+    "brand deals",
+    "sponsorships"
+  ],
+  "extensions": {
+    "com.nousresearch.hermes": {
+      "servers": {
+        "snippet": {
+          "trust": "untrusted"
+        }
+      }
+    }
+  }
+}
