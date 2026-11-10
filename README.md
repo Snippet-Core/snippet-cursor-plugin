@@ -1,11 +1,10 @@
-# [Snippet](https://usesnippet.app) for Cursor and remote MCP
+# Snippet: Brand Deals for Creators (MCP server and Cursor plugin)
 
-Connect your Snippet talent manager to work on creator brand deals, sponsorship
-rates, brand emails, held decisions and contract reviews from Cursor.
+Brand offer in your inbox? Get a 0-100 contract score, a fair rate range from your views, and a reply you approve before it sends.
 
-This folder is a standalone Agent Plugin. Publish its contents at the root of an
-approved public plugin repository, with an owner-approved open-source license.
-Do not publish the application repository or the sibling reviewer materials.
+Snippet is an AI talent manager for UGC, YouTube, TikTok and Instagram creators. This MCP server connects your Snippet account to Claude, ChatGPT, Cursor and other MCP clients so you can price sponsorships, review brand contracts, read brand emails and answer brands, with your approval on every send.
+
+Remote server: https://usesnippet.app/api/mcp (Streamable HTTP, OAuth, Snippet account required)
 
 ## Connect
 
@@ -27,6 +26,32 @@ Disconnect the client from Snippet settings to revoke access.
 Website: https://usesnippet.app · Privacy: https://usesnippet.app/privacy ·
 Terms: https://usesnippet.app/terms · Support: https://usesnippet.app/support
 
+## Tools
+
+The remote MCP server at `https://usesnippet.app/api/mcp` exposes these 13 tools after you sign in with a Snippet account:
+
+| Tool | What it does |
+| --- | --- |
+| get_manager_briefing | Summarizes what needs you, deals in motion, and this week's work. Read-only. |
+| list_deals | Lists your brand deals, with stage, offer value, and what is waiting on you. Read-only. |
+| get_deal | Returns one deal in full, including terms, recommended rate, and linked email threads. Read-only. |
+| search_inbox | Finds brand-deal email conversations. Not a general mailbox search. Read-only. |
+| get_inbox_thread | Reads one brand email thread and any reply Snippet already prepared. Read-only. |
+| draft_reply | Drafts a brand reply in your voice. It sends nothing until you approve the text. |
+| send_reply | Sends the approved reply from your Gmail. Use only after you approve the exact text. |
+| get_rate_card | Returns what you charge and will accept, plus measured views per platform. Read-only. |
+| estimate_sponsorship_rate | Returns a low-to-high rate range and a recommended ask from your measured views and published CPM benchmarks. Read-only. |
+| find_brand_matches | Lists brands Snippet has matched to you, with a reason each one fits. Read-only. |
+| review_brand_contract | Reviews a brand contract with a 0-100 creator-friendliness score and the clauses that cost you. Advisory, not legal advice. |
+| get_work_log | Lists what Snippet has done for you, newest first. Read-only. |
+| answer_decision | Acts on a decision Snippet is holding, only after you give an explicit yes. |
+
+## Example prompts
+
+- What brand deals need me today?
+- How much should I charge for a YouTube sponsorship?
+- Read my latest brand email and draft a reply that asks for a higher rate.
+
 ## Other MCP clients (including Cline)
 
 Connect to `https://usesnippet.app/api/mcp` using Streamable HTTP and your
@@ -34,7 +59,6 @@ client's browser-based OAuth flow. No local Snippet server or API key is needed.
 See [llms-install.md](llms-install.md) for Cline configuration and safe verification.
 A Snippet account with access is required. Stop if OAuth fails; do not invent a
 client ID, paste tokens into configuration, or bypass client consent.
-
 
 ## Hermes Agent
 
