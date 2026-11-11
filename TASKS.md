@@ -10,3 +10,13 @@
 USE-656 and USE-621 can proceed using the canonical public package revision above. Hermes-specific files added later require their own later revision.
 
 Rollback: revert PR #1 through the normal PR process; its parent revision is `f0590c8f8bf50de2506ccb824462cdbb3df47f21`.
+
+## Batch cos-2026-11-11
+
+- [x] Merge USE-611 verification commit `33f1334b632c5ddf879d833e457065f82dcc41d1` into the batch based on current main.
+- [x] Recheck PR #1 merged SHA, public repository visibility, revision ancestry and anonymous HTTP 200.
+- [x] Parse all four JSON manifests; verify MIT license and both distribution PNG dimensions (400×400).
+- [x] Review the combined documentation-only diff and run `git diff --check`.
+- Test suite, lint, typecheck and build: unavailable; this static plugin repository has no corresponding tooling or CI workflows.
+- Deployment: no deployment or release workflow exists in this repository; distribution is the public Git repository.
+- Batch rollback: revert the batch PR merge through a new PR; pre-batch main is `f23aa7a`.
