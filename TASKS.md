@@ -20,3 +20,24 @@ Rollback: revert PR #1 through the normal PR process; its parent revision is `f0
 - Test suite, lint, typecheck and build: unavailable; this static plugin repository has no corresponding tooling or CI workflows.
 - Deployment: no deployment or release workflow exists in this repository; distribution is the public Git repository.
 - Batch rollback: revert the batch PR merge through a new PR; pre-batch main is `f23aa7a`.
+
+Reproduce the package verification from this checkout:
+
+```sh
+gh pr view 1 --json state,mergeCommit,headRefOid
+gh repo view --json isPrivate
+git merge-base --is-ancestor 3f394ceefd3cd1f7dce35e28d2e721d0b46dd4f6 origin/main
+curl --fail --silent --output /dev/null --write-out '%{http_code}\n' https://github.com/Snippet-Core/snippet-cursor-plugin/tree/3f394ceefd3cd1f7dce35e28d2e721d0b46dd4f6
+python3 - <<'PY'
+import json, pathlib, struct
+for p in pathlib.Path('.').rglob('*.json'):
+    json.loads(p.read_text())
+assert 'MIT License' in pathlib.Path('LICENSE').read_text()
+for name in ['assets/icon-400.png', 'assets/logo-padded.png']:
+    data = pathlib.Path(name).read_bytes()
+    assert data[:8] == b'\x89PNG\r\n\x1a\n'
+    assert struct.unpack('>II', data[16:24]) == (400, 400)
+print('PASS: manifests, license, PNG dimensions')
+PY
+git diff --check origin/main...HEAD
+```
